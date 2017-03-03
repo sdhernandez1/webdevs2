@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bus Tracker</title>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+                  <style> 
+            body {
+              font-family: "Lato", sans-serif;
+              background-color: #cfd2d6;
+            }
+    
+            /* Style the tab */
+            div.tab {
+                overflow: hidden;
+                background-color: #105fb5;
+                color: #ccc;
+            }
+            
+            /* Style the links inside the tab */
+            div.tab a {
+                float: left;
+                display: block;
+                color: #f0f7ef;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+            
+            /* Change background color of links on hover */
+            div.tab a:hover {
+                background-color: #6094d6;
+            }
+            
+            /* Create an active/current tablink class */
+            div.tab a:focus, .active {
+                background-color: #a1bee2;
+            }
+            
+            /* Style the tab content */
+            .tabcontent {
+                display: none;
+                padding: 20px;
+                border: 2px solid #c7e0f9 ;
+                margin-top: 20px;
+                margin-right: 20px;
+                margin-left: 20px;
+                border-radius: 15px 40px;
+                height: 150px;
+            }
+          </style>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script>
+        $(function() {
+          
+          
+          var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+          
+          var apiEndpoint = "http://ctabustracker.com/bustime/api/v2/getpredictions";
+          
+          
+          $.ajax({
+              url: apiPassThruUrl,
+              dataType: "json",
+              method: 'GET',
+              data: {"apiEndpoint": apiEndpoint,
+                      "key" : "vfYCiwzPxTkSEP5jjmkfz5qAU",
+                      "rt": "X49,49,152",
+                      "stpid": "8417,8195,12527,12569",
+                      "format":"json"
+              }
+            }).done (function (data) {
+              console.log(data);
+              
+              
+              $.each(data["bustime-response"]["prd"], function(i,v) {
+                
+                  if (v.rt == "X49" && v.stpid == "8417") {
+                  $("#X49N").append (v.prdctdn + " min" + "<br>")
+                } else if(v.rt == "49" && v.stpid == "8417") {
+                  $("#49N").append(v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "X49" && v.stpid == "8195") {
+                  $("#X49S").append (v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "49" && v.stpid == "8195") {
+                  $("#49S").append (v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "152" && v.stpid == "12527") {
+                  $("#152E").append(v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "152" && v.stpid == "12569") {
+                  $("#152W").append(v.prdctdn + " min" + "<br>")
+                } 
+                
+              })
+
+              });
+        });
+        
+        </script>
+            
+      <div class="tab">
+        <a href="javascript:void(0)" class="tablinks" onclick="openBusTimes(event, 'X49N')">X49 Northbound</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openBusTimes(event, '49N')">49 Northbound</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openBusTimes(event, 'X49S')">X49 Southbound</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openBusTimes(event, '49S')">49 Southbound</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openBusTimes(event, '152E')">152 Eastbound</a>
+        <a href="javascript:void(0)" class="tablinks" onclick="openBusTimes(event, '152W')">152 Westbound</a>
+      </div>
+     
+     
+      <div id="X49N" class="tabcontent">
+        <p>Arrivals</p>
+      </div>
+      <div id="49N" class="tabcontent">
+        <p>Arrivals</p>
+      </div>
+      <div id="X49S" class="tabcontent">
+        <p>Arrivals</p>
+      </div>
+      <div id="49S" class="tabcontent">
+        <p>Arrivals</p>
+      </div>
+      <div id="152E" class="tabcontent">
+        <p>Arrivals</p>
+      </div>
+      <div id="152W" class="tabcontent">
+        <p>Arrivals</p>
+      </div>
+    
+      
+      <script>
+      function openBusTimes(evt, busName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(busName).style.display = "block";
+          evt.currentTarget.className += " active";
+      }
+      </script>
+
+  
+
+ 
+    </body>
+</html>
