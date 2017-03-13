@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+    <style>
+    div.special {
+        background-color:#FAF0E6;
+        font-family: 'Slabo 27px', serif;;
+        font-size:20px;
+        text-align:center;
+    }
+    
+    #es {
+        border:5px solid green;
+    }
+    #schedule {
+        border:1px solid black;
+        text-align:center;
+    }
+    body {
+        background-color: grey;
+    }
+    body {
+        background-image: url("http://www.hollilla.com/images/6/7/7/677d625236d60eaf8d0540d2b33f5b20_328281.JPEG");
+        background-repeat: repeat-x;
+    }
+    h1 {
+        color: white;
+        margin-left: 40px;
+    } 
+    p  {
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+<h1>Shantal Hernandez</h1>
+<p>A List of My Five Favorite Shows (all in no particular order):</p>
+<p>- How To Get Away with Murder</p>
+<a href="www.hercampus.com/sites/default/files/2016/01/17/GreysCoverPhoto.jpg" target="_blank">- Grey's Anatomy</a>
+<p>- American Horror Story</p>
+<p>- Criminal Minds</p>
+<p>- House M.D.</p>
+
+<p>I have watched:</p>
+
+<form>
+    <select name=tv shows>
+        <option value="all of these shows">All of these shows</option>
+        <option value="some of these shows">Some of these shows</option>
+        <option value="none of these shows">None of these shows</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit"/>
+</form>
+
+<form>
+     Show you are currently watching:<br>
+    <input type="text" name="show you are currently watching:">
+    <button type="button" id="btnShowEmail" >Show email address</button>
+    <script>
+        document.getElementById("btnShowEmail).onclick=function(){
+            var txtInputEmail = documnet.getElementById("email");
+            var strEmail = txtInputEmail.value;
+            var message = "";
+            if (strEmail === "")  {
+                message - "Hey, enter an email address!";
+            }
+            else {
+                message = "The value in the email input box is " + strEmail;
+            }
+            alert(message);
+        };
+    </script>
+</form>
+
+<div class="special">
+    <p> Google Fonts has a variety of fonts to choose from which can be very useful when you are looking to be more creative with your page. Here I am using the font "Slabo 27px".</p>
+</div>
+
+<img id=es src=https://cldn0.fiverrcdn.com/fiverr/t_main1/gigs/24906472/original/1c1e815f15b91a00a95428c74531167f6451bed1.jpg></img>
+<table id=schedule style="width:100%">
+    <tr>
+        <th>Pd.</th>
+        <th>Course</th>
+        <th>Teacher</th>
+        <th>Rm.</th>
+    <tr/>
+    <tr>
+        <td>1</td>
+        <td>Chemistry</td>
+        <td>Mrs. Young</td>
+        <td>125</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Web Development</td>
+        <td>Mr. Hayes</td>
+        <td>124</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>AP Comparative Government and Politics</td>
+        <td>Mr. Escudier</td>
+        <td>322</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Lunch</td>
+        <td>N/A</td>
+        <td>Lunchroom</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Geometry</td>
+        <td>Mr.Kane</td>
+        <td>303</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Spanish</td>
+        <td>Mr. Sosa</td>
+        <td>107</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Drivers Ed</td>
+        <td>Ms. Onken</td>
+        <td>199</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>English</td>
+        <td>Mr. Nordlund</td>
+        <td>202</td>
+    </tr>
+</table>
+
+</body>
+
+</html>

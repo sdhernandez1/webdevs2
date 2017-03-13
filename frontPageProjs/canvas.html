@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Project 2 Canvas Animation</title>
+    <style>
+        canvas {
+            background-color: white;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div id= container>
+        <canvas id="myCanvas" width="400" height="400"></canvas>
+    </div>
+    <div id="buttons">
+        <input type="button" id="clear" value="Clear">
+    </div>
+    
+    <script>
+        var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            
+            var endPathX;
+            var endPathY;
+            
+            canvas.addEventListener("mousemove", 
+            
+              function (e) {
+                // generate a random size for the circle;
+             	var circleSize = Math.floor((Math.random() * 20) + 20);
+             	
+                // generate a random color for the circle
+             	var circleColor = '#'+ Math.floor(Math.random()*16777215).toString(16);
+            	
+            	ctx.strokeStyle = circleColor;
+            	ctx.lineWidth = 10; 
+            	 
+            	 
+             	// set the fill style
+             	ctx.fillStyle = circleColor;
+             	
+             	
+             	
+             	// draw the circle at the mouse coords
+             	ctx.beginPath();
+                ctx.moveTo(endPathX,endPathY);
+                //ctx.arc(e.layerX, e.layerY, circleSize, 0, 2 * Math.PI);
+                ctx.lineTo(e.layerX,e.layerY);
+                ctx.stroke();
+                
+                endPathX = e.layerX;
+                endPathY = e.layerY;
+              }
+            
+            );
+            
+                // bind event handler to clear button
+            document.getElementById('buttons').addEventListener('click', 
+                function() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+                },  
+            
+            false);
+
+    </script>
+</body>
+
+<script>
+    
+</script>
+
+</html>
