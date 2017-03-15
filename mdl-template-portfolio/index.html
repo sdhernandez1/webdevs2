@@ -16,7 +16,7 @@
   limitations under the License
 -->
 <html lang="en">
-
+ 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,20 +26,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-pink.min.css" />
     <link rel="stylesheet" href="styles.css" />
+    
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <style>
+        #liveproj {
+            color: rgb(186, 207, 239);
+        }
+        
+        #summ {
+            
+        }
+        
+        #liveproj {
+            
+        }
+    </style>
 </head>
 
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
-            <div class="mdl-layout__header-row portfolio-logo-row">
-                <span class="mdl-layout__title">
-                    <div class="portfolio-logo"></div>
-                    <span class="mdl-layout__title">Simple portfolio website</span>
-                </span>
-            </div>
+        <header>
             <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
                 <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
                     <a class="mdl-navigation__link is-active" href="index.html">Portfolio</a>
@@ -51,7 +60,7 @@
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
                 <a class="mdl-navigation__link is-active" href="index.html">Portfolio</a>
-                <a class="mdl-navigation__link" href="about.html">About</a>
+                <a class="mdl-navigation__link " href="about.html">About</a>
             </nav>
         </div>
         
@@ -60,97 +69,98 @@
                 
                 <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                     <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work01.jpg" border="0" alt="">
+                        <img class="article-image" src=" myImages/cpl.jpg" border="0" alt="">
                     </div>
                     <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Blog template</h2>
+                        <h2 class="mdl-card__title-text">Library Finder</h2>
                     </div>
-                    <div class="mdl-card__supporting-text">
-                        Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+                    <div class="mdl-card__supporting-text" id="summ">
+                        Enter your zip code and find the nearest library to you in Chicago.
                     </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://preview.c9users.io/sdhernandez1/webdevs2/projects/1/index.htmlInThisFolder/index.html" target="_blank">View Live Project</a>
-                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/projects/1/index.htmlInThisFolder/index.html"><img src= "images/github.png" ></img></a>
+                    <br><br><br><br><br>
+                    <div class="mdl-card__actions mdl-card--border" id="links">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="liveproj" href="https://preview.c9users.io/sdhernandez1/webdevs2/projects/1/index.htmlInThisFolder/index.html" target="_blank">View Live Project</a>
+                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/projects/1/index.htmlInThisFolder/index.html" target="_blank"><img src= "myImages/github.png" ></img></a>
                     </div>
                 </div>
                 
                 <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                     <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work07.jpg" border="0" alt="">
+                        <img class="article-image" src="myImages/cta.jpg" border="0" alt="">
                     </div>
                     <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Sunt nulla</h2>
+                        <h2 class="mdl-card__title-text">Lane Tech Bus Tracker</h2>
                     </div>
-                    <div class="mdl-card__supporting-text">
-                        Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://preview.c9users.io/sdhernandez1/webdevs2/projects/2/index.html" target="_blank">View Live Project</a>
-                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/projects/2/index.html"><img src= "images/github.png" ></img></a>
+                    <div class="mdl-card__supporting-text" id="summ">
+                        Click on the tabs to show arrival times for the 49/X49 and 152 buses going north and south.
+                    </div><br><br><br>
+                    <div class="mdl-card__actions mdl-card--border" id="links">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="liveproj" href="https://preview.c9users.io/sdhernandez1/webdevs2/projects/2/index.html" target="_blank">View Live Project</a>
+                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/projects/2/index.html" target="_blank"><img src= "myImages/github.png" ></img></a>
                     </div>
                 </div>
                 
                 <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                     <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work02.jpg" border="0" alt="">
+                        <img class="article-image" src="myImages/airhorn.png" border="0" alt="">
                     </div>
                     <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Android.com website</h2>
+                        <h2 class="mdl-card__title-text">Airhorn</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-                    </div>
+                        Click for airhorn sound.
+                    </div><br><br><br><br><br><br>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://preview.c9users.io/sdhernandez1/webdevs2/labs/8/index.html" target="_blank">View Live Project</a>
-                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/labs/8/index.html"><img src= "images/github.png" ></img></a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="liveproj" href="https://preview.c9users.io/sdhernandez1/webdevs2/labs/8/index.html" target="_blank">View Live Project</a>
+                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/labs/8/index.html" target="_blank"><img src= "myImages/github.png" ></img></a>
                     </div>
                 </div>
                 
                 <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                     <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work03.jpg" border="0" alt="">
+                        <img class="article-image" src="myImages/canvas.png" border="0" alt="">
                     </div>
                     <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Dashboard template</h2>
+                        <h2 class="mdl-card__title-text">Canvas</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-                    </div>
+                        Move the mouse around the screen to create a line made of multiple colors.
+                    </div><br><br><br><br><br>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://preview.c9users.io/sdhernandez1/webdev1617/project2/index.html">View Live Project</a>
-                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/canvas.html"><img src= "images/github.png" ></img></a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="liveproj" href="https://preview.c9users.io/sdhernandez1/webdevs2/frontPageProjs/canvas.html" target="_blank">View Live Project</a>
+                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/frontPageProjs/canvas.html" target="_blank"><img src= "myImages/github.png" ></img></a>
                     </div>
                 </div>
                 
                 <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                     <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work04.jpg" border="0" alt="">
+                        <img class="article-image" src="myImages/aboutme_v3.png" border="0" alt="">
                     </div>
                     <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Text-heavy website</h2>
+                        <h2 class="mdl-card__title-text">About Me Version 3</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-                    </div>
+                        A minimally updated version of About Me Version 1.
+                    </div><br><br><br><br><br><br><br>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://preview.c9users.io/sdhernandez1/webdev1617/assignment3/aboutme_v3.html">View Live Project</a>
-                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/frontPageProjs/aboutme_v3.html"><img src= "images/github.png" ></img></a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="liveproj" href="https://preview.c9users.io/sdhernandez1/webdev1617/assignment3/aboutme_v3.html" target="_blank">View Live Project</a>
+                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/frontPageProjs/aboutme_v3.html" target="_blank"><img src= "myImages/github.png" ></img></a>
                     </div>
                 </div>
                 
                 <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
                     <div class="mdl-card__media">
-                        <img class="article-image" src=" images/example-work08.jpg" border="0" alt="">
+                        <img class="article-image" src="myImages/aboutme_v1.png" border="0" alt="">
                     </div>
                     <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">Ex officia laborum</h2>
+                        <h2 class="mdl-card__title-text">About Me Version 1</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-                    </div>
+                        The very first page created by me.
+                    </div><br><br><br><br><br><br><br>
                     <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="https://preview.c9users.io/sdhernandez1/webdevs2/labs/charts/bar1.html">View Live Project</a>
-                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/projects/1/index.htmlInThisFolder/index.html"><img src= "images/github.png" ></img></a>
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"  id="liveproj" href="https://preview.c9users.io/sdhernandez1/webdevs2/frontPageProjs/aboutme_v1.html" target="_blank">View Live Project</a>
+                        <a href="https://github.com/sdhernandez1/webdevs2/blob/master/frontPageProjs/aboutme_v1.html" target="_blank"><img src= "myImages/github.png" ></img></a>
                     </div>
                 </div>
                 
