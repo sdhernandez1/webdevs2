@@ -1,0 +1,214 @@
+<html>
+  <head>
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+          <meta name="apple-mobile-web-app-capable" content="yes">
+          <meta name="apple-mobile-web-app-status-bar-style" content="black">
+          <meta name="apple-mobile-web-app-title" content="Weather PWA">
+          <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+          
+          <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+          <meta name="msapplication-TileColor" content="#2F3BA2">
+          
+          <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+          <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+  </head>
+  <body>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script>
+        $(function() {
+          
+          
+          var apiPassThruUrl = "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+          
+          var apiEndpoint = "http://ctabustracker.com/bustime/api/v2/getpredictions";
+          
+          
+          $.ajax({
+              url: apiPassThruUrl,
+              dataType: "json",
+              method: 'GET',
+              data: {"apiEndpoint": apiEndpoint,
+                      "key" : "vfYCiwzPxTkSEP5jjmkfz5qAU",
+                      "rt": "X49,49,152",
+                      "stpid": "8417,8195,12527,12569",
+                      "format":"json"
+              }
+            }).done (function (data) {
+              console.log(data);
+              
+              
+              $.each(data["bustime-response"]["prd"], function(i,v) {
+                
+                  if (v.rt == "X49" && v.stpid == "8417") {
+                  $("#X49N").append (v.prdctdn + " min" + "<br>")
+                } else if(v.rt == "49" && v.stpid == "8417") {
+                  $("#49N").append(v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "X49" && v.stpid == "8195") {
+                  $("#X49S").append (v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "49" && v.stpid == "8195") {
+                  $("#49S").append (v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "152" && v.stpid == "12527") {
+                  $("#152E").append(v.prdctdn + " min" + "<br>")
+                } else if (v.rt == "152" && v.stpid == "12569") {
+                  $("#152W").append(v.prdctdn + " min" + "<br>")
+                } 
+                
+              })
+
+              });
+        });
+        </script>
+    <!-- Simple header with fixed tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+                mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Title</span>
+        </div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+          <a href="#fixed-tab-2" class="mdl-layout__tab">Tab 2</a>
+          <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+      </div>
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+          <div class="page-content">
+            <div id="X49N" class="tabcontent">
+              <p>Arrivals: X49N</p>
+            </div>
+            <div id="49N" class="tabcontent">
+              <p>Arrivals: 49N</p>
+            </div>
+            <div id="X49S" class="tabcontent">
+              <p>Arrivals: X49S</p>
+            </div>
+            <div id="49S" class="tabcontent">
+              <p>Arrivals: 49S</p>
+            </div>
+            <div id="152E" class="tabcontent">
+              <p>Arrivals: 152E</p>
+            </div>
+            <div id="152W" class="tabcontent">
+              <p>Arrivals: 152W</p>
+            </div>
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+          <div class="page-content">
+          </div>
+        </section>
+        
+        
+        <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+          <div class="page-content">
+            <select id="routeSelect" ></select>
+            <select id="directionSelect"></select>
+            <select id="stopSelect"></select>
+
+          </div>
+        </section>
+      </main>
+    </div>
+    
+          <script>
+            $(function() {
+              
+            var apiPassThruUrl= "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+            
+            var apiEndpoint= "http://ctabustracker.com/bustime/api/v2/";
+            
+            $.ajax({
+            url: apiPassThruUrl,
+            dataType: "json",
+            method: 'GET',
+            data: {"apiEndpoint": apiEndpoint + "getroutes",
+            "key": "vfYCiwzPxTkSEP5jjmkfz5qAU",
+            "format":"json"
+                      }
+              }).done(function (data) {
+                console.log(data);
+                
+                $.each(data ["bustime-response"]["routes"], function(i,v) {
+            var option= $("<option>");
+                  option.attr("value", v.rt);
+                  option.text(v.rt + " - " + v.rtnm);
+                  $("#routeSelect").append(option);
+            });
+            
+            
+            $("#routeSelect").on("change", function() {
+                      // get the value
+                       $("#directionSelect option").remove();
+                       
+                  $.ajax({
+            url: apiPassThruUrl,
+            dataType: "json",
+            method: 'GET',
+            data: {"apiEndpoint": apiEndpoint + "getdirections",
+            "rt": $("#routeSelect").val(),
+            "key": "vfYCiwzPxTkSEP5jjmkfz5qAU",
+            "format":"json"
+                                }
+                        }).done(function (data) {
+                          console.log(data);
+                          
+                          $.each(data ["bustime-response"]["directions"], function(i,v) {
+            var option2= $("<option>");
+                            option2.attr("value", v.dir);
+                            option2.text(v.dir);
+                            $("#directionSelect").append(option2);
+                             
+                          })
+                                
+                              })
+                });
+              });
+            })
+            
+            
+            var apiPassThruUrl= "https://polar-garden-75406.herokuapp.com/apiPassThru.php";
+            var apiEndpoint= "http://ctabustracker.com/bustime/api/v2/";
+            
+             $("#directionSelect").on("change", function() {
+                      // get the value
+                       $("#stopSelect option").remove();
+                       
+                  $.ajax({
+            url: apiPassThruUrl,
+            dataType: "json",
+            method: 'GET',
+            data: {"apiEndpoint": apiEndpoint + "getstops",
+            "rt": $("#routeSelect").val(),
+            "dir": $("#directionSelect").val(),
+            "key": "vfYCiwzPxTkSEP5jjmkfz5qAU",
+            "format":"json"
+                                }
+                        }).done(function (data) {
+                          console.log(data);
+                          
+                          $.each(data ["bustime-response"]["stops"], function(i,v) {
+            var option3= $("<option>");
+                            option3.attr("value", v.stpnm);
+                            option3.text(v.stpnm);
+                            $("#stopSelect").append(option3);
+                          })
+                              })
+                });
+          </script>
+          
+          
+  </body>
+</html>
